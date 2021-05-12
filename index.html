@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hold to scale</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #262424;
+        }
+        
+        #hold {
+            width: 500px;
+            height: 300px;
+            background: url(img/bg.jpg) no-repeat center center;
+            background-size: cover;
+            margin: auto auto;
+            cursor: pointer;
+        }
+        
+        .grd {
+            display: grid;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .original {
+            background: #82e7ff;
+            transform: scale(1);
+            transition: all .9s ease-in-out;
+        }
+        
+        .down {
+            transform: scale(0.5);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="grd">
+        <div id="hold" class="original" onmousedown="down()" onmouseup="cancel()" onmouseout="cancel()"></div>
+    </div>
+    <script>
+        var el = document.getElementById('hold');
+
+        function down() {
+            el.classList.add("down");
+        }
+
+        function cancel() {
+            el.classList.remove("down");
+        }
+
+    </script>
+</body>
+
+</html>
